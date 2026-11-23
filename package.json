@@ -1,0 +1,58 @@
+{
+  "name": "npm-dl-inline",
+  "version": "1.0.0",
+  "description": "Zero-dependency CLI that aggregates all-time npm downloads across all packages by a maintainer and updates a single inline number in README.md.",
+  "type": "module",
+  "main": "./dist/src/index.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/src/index.js"
+    }
+  },
+  "bin": {
+    "npm-dl-inline": "./dist/src/cli.js"
+  },
+  "files": [
+    "dist/src",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "clean": "node -e \"import('node:fs').then(fs => fs.rmSync('dist', { recursive: true, force: true }))\"",
+    "build": "npm run clean && tsc && node -e \"import('node:fs').then(fs => fs.chmodSync('dist/src/cli.js', 0o755))\"",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "typecheck": "tsc --noEmit",
+    "prepublishOnly": "npm test"
+  },
+  "keywords": [
+    "npm",
+    "downloads",
+    "readme",
+    "cli",
+    "stats",
+    "inline",
+    "maintainer",
+    "zero-dependency",
+    "typescript"
+  ],
+  "author": "Sabtain Ali <https://github.com/sabtain05>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sabtain05/npm-dl-inline.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sabtain05/npm-dl-inline/issues"
+  },
+  "homepage": "https://github.com/sabtain05/npm-dl-inline#readme",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.64",
+    "typescript": "^5.7.2"
+  }
+}
