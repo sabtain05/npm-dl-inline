@@ -99,4 +99,8 @@ npm test
 
 ## License
 
-MIT © [Sabtain Ali](https://github.com/sabtain05)
+MIT 
+
+---
+
+<strong>A Sabtain Ali production</strong>
